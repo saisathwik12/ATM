@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="display"><br>
+        <input type="number" id="input">
+
+        <div>
+            <button id="withdraw" >Withdraw</button><br>
+            <button id="deposite" >Deposite</button><br>
+            <button id="balance" >Check Balance</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById("display");
+        const input = document.getElementById("input")
+        const w = document.getElementById("withdraw");
+        const de = document.getElementById("deposite");
+        const b = document.getElementById("balance");
+
+
+        input.addEventListener("input",(e) => {
+            console.log(e)
+            let balance = 0;
+            display.value = balance;
+            let i = e.target.valueAsNumber
+            
+
+            w.addEventListener("click",(e1) => {
+                if(i > balance){
+                    console.log("Insufficiant Balance")
+                }
+                else{
+                    balance -= i
+                    console.log("Remaining Balance", balance)
+                }
+
+            })
+            de.addEventListener("click",(e2) => {
+                console.log(i)
+                balance += i
+                console.log("Total Balance :",balance)
+
+            })
+            b.addEventListener("click", (e3) => {
+                console.log("Current Balance",balance)
+            })
+            
+            
+        })
+
+
+
+        // function Atm(balance){
+        //     this.balance = balance;
+            
+        //     this.withdraw = function (withdraw){
+        //         if(withdraw > balance){
+        //             console.log("Insufficiant Balance")
+        //         }
+        //         else{
+        //             balance -= withdraw
+        //             console.log("Remaining Balance", balance)
+        //         }
+        //     }
+        //     this.deposite =function (deposite){
+        //         balance += deposite
+        //         console.log(`Total Balance :`,balance)
+        //     }
+        // }
+
+        // let a = new Atm(2000);
+        // console.log(a.balance)
+        // a.withdraw(100)
+        // a.deposite(100)
+
+
+
+        
+
+    </script>
+</body>
+</html>
