@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1{
+            width: fit-content;
+            margin: 20px auto;
+            border: 1px solid black;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 5px 5px 15px black;
+
+        }
+        .div2{
+            align-items: center;
+
+        }
+        h2{
+            text-align: center;
+            font-size: 50px;
+        }
+        input{
+            width: 400px;
+            padding: 10px;
+            margin: 10px;
+            font-size: larger;
+            background-color: rgba(112, 203, 255, 0.382);
+            &:focus{
+                box-shadow: 1px 1px 15px rgba(20, 157, 236, 0.938);
+            }
+
+        }
+        button{
+            background-color: blue;
+            margin: 10px;
+            width: 400px;
+            padding: 20px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgb(0, 128, 255);
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="div1">
+        <h2>ATM</h2>
+        <input type="text" id="display" disabled><br>
+        <input type="number" id="input" >
+
+        <div class="div2">
+            <button id="withdraw" onclick="withdraw()" >Withdraw</button><br>
+            <button id="deposit" onclick="deposit()" >Deposite</button><br>
+            <button id="checkBalance" onclick="checkBalance()" >Check Balance</button>
+        </div>
+    </div>
+    <script>
+        let balance = 0;
+        const display = document.getElementById("display");
+        const input = document.getElementById("input");
+
+        function withdraw() {
+            const amount = Number(input.value);
+            if (amount > balance) {
+                alert("Insufficient balance");
+            } else {
+                balance -= amount;
+                display.value = "Remaining Balance" + " " + balance;
+            }
+        }
+
+        function deposit() {
+            const amount = Number(input.value);
+            balance += amount;
+            display.value = "Total Balance :" + " " + balance;
+        }
+
+        function checkBalance() {
+            display.value = "Current Balance" + " " + balance;
+        }
+
+
+    </script>
+</body>
+</html>
